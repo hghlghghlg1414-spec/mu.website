@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>صدقة جارية - أحمد شناق</title>
+<meta name="description" content="صفحة صدقة جارية لروح أحمد شناق. قراءة الفاتحة ويس وأذكار ودعاء." />
+<style>
+  :root{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#223;
+    --primary:#2d6a4f;
+    --primary-2:#40916c;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Tahoma", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+  }
+  header{
+    background:linear-gradient(135deg,var(--primary),var(--primary-2));
+    color:#fff;
+    padding:28px 16px;
+    text-align:center;
+  }
+  header h1{margin:0 0 6px;font-size:26px}
+  header p{margin:0;opacity:.95}
+  .wrap{max-width:860px;margin:24px auto;padding:0 12px}
+  .card{
+    background:var(--card);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 10px 25px rgba(20,30,40,.07);
+    margin:14px 0;
+  }
+  h2{color:var(--primary);font-size:20px;margin:0 0 10px}
+  .tasbih-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;
+  }
+  .tasbih{
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+  }
+  .tasbih button{
+    display:block;
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:16px;
+    cursor:pointer;
+    background:var(--primary-2);
+    color:#fff;
+    transition:transform .04s ease, opacity .2s ease;
+  }
+  .tasbih button:active{transform:scale(.98)}
+  .tasbih button:disabled{opacity:.55;cursor:not-allowed}
+  .count{margin-top:8px;font-size:14px;color:var(--muted)}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  .row .btn{
+    border:none;border-radius:12px;padding:10px 14px;cursor:pointer;
+    background:#1b4332;color:#fff
+  }
+  .row .btn.secondary{background:#0e7490}
+  .row .btn.muted{background:#6b7280}
+  .ayah{white-space:pre-wrap;text-align:justify;font-size:18px;line-height:2}
+  .small{font-size:13px;color:var(--muted)}
+  footer{padding:20px 12px;text-align:center;color:var(--muted)}
+  a.share{display:inline-block;margin:6px 4px;text-decoration:none;background:#1b4332;color:#fff;padding:10px 14px;border-radius:12px}
+  .name{color:#fff;font-weight:700}
+</style>
+</head>
+<body>
+  <header>
+    <h1>إنا لله وإنا إليه راجعون</h1>
+    <p>صدقة جارية لروح <span class="name">أحمد شناق</span> – نسأل الله أن يتقبّل.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>أذكار للمرحوم أحمد شناق</h2>
+      <p class="small">اضغط على الزر لزيادة العدّ. يحفظ التقدّم تلقائيًا على جهازك.</p>
+      <div class="tasbih-grid" id="tasbihGrid">
+        <div class="tasbih">
+          <div class="dzkr">اللهم اغفر له</div>
+          <button data-key="dzkr1" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr1">0 / 33</div>
+        </div>
+        <div class="tasbih">
+          <div class="dzkr">اللهم ارحمه</div>
+          <button data-key="dzkr2" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr2">0 / 33</div>
+        </div>
+        <div class="tasbih">
+          <div class="dzkr">سبحان الله</div>
+          <button data-key="dzkr3" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr3">0 / 33</div>
+        </div>
+        <div class="tasbih">
+          <div class="dzkr">الحمد لله</div>
+          <button data-key="dzkr4" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr4">0 / 33</div>
+        </div>
+        <div class="tasbih">
+          <div class="dzkr">لا إله إلا الله</div>
+          <button data-key="dzkr5" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr5">0 / 33</div>
+        </div>
+        <div class="tasbih">
+          <div class="dzkr">الله أكبر</div>
+          <button data-key="dzkr6" data-max="33">تسبيح</button>
+          <div class="count" data-for="dzkr6">0 / 33</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn secondary" id="resetAll">إعادة تعيين العدّ</button>
+        <button class="btn muted" id="fillAll">إنهاء العدّ (33) لكل ذكر</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>سورة الفاتحة</h2>
+      <div class="ayah">
+بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ
+ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+مَٰلِكِ يَوْمِ ٱلدِّينِ
+إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ
+صِرَاطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>سورة يس (مطلع السورة)</h2>
+      <div class="ayah">
+يس
+۞ وَٱلْقُرْآنِ ٱلْحَكِيمِ
+إِنَّكَ لَمِنَ ٱلْمُرْسَلِينَ
+عَلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ
+تَنزِيلَ ٱلْعَزِيزِ ٱلرَّحِيمِ
+      </div>
+      <p class="small">يمكنك إضافة نص السورة كاملًا إن رغبت.</p>
+    </section>
+
+    <section class="card">
+      <h2>دعاء للمتوفى أحمد شناق</h2>
+      <div class="ayah">
+اللهم اغفر لعبدك أحمد شناق، وارحمه، وعافه واعف عنه، وأكرم نزله، ووسع مدخله،
+واغسله بالماء والثلج والبرد، ونقِّه من الخطايا كما يُنقَّى الثوب الأبيض من الدَّنس،
+وأبدله دارًا خيرًا من داره، وأهلًا خيرًا من أهله، وزوجًا خيرًا من زوجه،
+وأدخله الجنة وأعِذه من عذاب القبر ومن عذاب النار.
+      </div>
+    </section>
+
+    <section class="card" style="text-align:center">
+      <h2>شارك الصفحة</h2>
+      <a class="share" href="https://wa.me/?text=%D8%B5%D8%AF%D9%82%D8%A9%20%D8%AC%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%84%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B4%D9%86%D8%A7%D9%82" target="_blank" rel="noopener">واتساب</a>
+      <a class="share" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" rel="noopener">فيسبوك</a>
+    </section>
+  </main>
+
+  <footer>
+    <div>نسأل الله أن يجعلها في ميزان حسناته.</div>
+  </footer>
+
+<script>
+(function(){
+  const get = (k, d=0) => parseInt(localStorage.getItem(k) ?? d, 10);
+  const set = (k, v) => localStorage.setItem(k, String(v));
+
+  // Init counts
+  document.querySelectorAll('[data-for]').forEach(span => {
+    const key = span.getAttribute('data-for');
+    const btn = document.querySelector('[data-key="'+key+'"]');
+    const max = parseInt(btn.getAttribute('data-max'), 10);
+    const current = Math.min(get(key, 0), max);
+    span.textContent = current+' / '+max;
+    if(current >= max){ btn.disabled = true; }
+  });
+
+  // Increment logic
+  document.querySelectorAll('button[data-key]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-key');
+      const max = parseInt(btn.getAttribute('data-max'), 10);
+      const span = document.querySelector('[data-for="'+key+'"]');
+      let current = get(key, 0);
+      if(current < max){
+        current++;
+        set(key, current);
+        span.textContent = current+' / '+max;
+        if(current >= max){ btn.disabled = true; }
+      }
+    });
+  });
+
+  // Reset & Fill
+  document.getElementById('resetAll').addEventListener('click', () => {
+    document.querySelectorAll('button[data-key]').forEach(btn => {
+      const key = btn.getAttribute('data-key');
+      const max = parseInt(btn.getAttribute('data-max'), 10);
+      set(key, 0);
+      const span = document.querySelector('[data-for="'+key+'"]');
+      span.textContent = '0 / '+max;
+      btn.disabled = false;
+    });
+  });
+  document.getElementById('fillAll').addEventListener('click', () => {
+    document.querySelectorAll('button[data-key]').forEach(btn => {
+      const key = btn.getAttribute('data-key');
+      const max = parseInt(btn.getAttribute('data-max'), 10);
+      set(key, max);
+      const span = document.querySelector('[data-for="'+key+'"]');
+      span.textContent = max+' / '+max;
+      btn.disabled = true;
+    });
+  });
+})();
+</script>
+</body>
+</html>
